@@ -6,13 +6,13 @@ public class User {
     private int id;
     private String fullName;
     private String email;
-    private Date birthDate;
+    private String birthDate;
     private String password;
     private String validationToken;
     private boolean validated;
     
 
-    public User(int id, String fullName, String email, String password, Date birthDate) {
+    public User(int id, String fullName, String email, String password, String birthDate) {
         this.id = id;
         this.fullName = fullName;
         this.email = email;
@@ -40,11 +40,11 @@ public class User {
         this.email = email;
     }
 
-    public Date getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 

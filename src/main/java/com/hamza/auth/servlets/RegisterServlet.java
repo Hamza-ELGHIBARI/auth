@@ -25,7 +25,7 @@ public class RegisterServlet extends HttpServlet {
         String fullName = request.getParameter("fullName");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        Date birthDate = new Date(request.getParameter("birthDate")); // Vous pouvez choisir un format de date adéquat
+        String birthDate = request.getParameter("birthDate"); // Vous pouvez choisir un format de date adéquat
 
         // Générer un token de validation
         String validationToken = TokenGenerator.generateToken();
