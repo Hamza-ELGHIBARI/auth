@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="RegisterServlet" method="post">
+<form action="${pageContext.request.contextPath}/register" method="post">
     <input type="text" name="fullName" placeholder="Full Name" required>
     <input type="email" name="email" placeholder="Email" required>
     <input type="date" name="birthDate" required>
