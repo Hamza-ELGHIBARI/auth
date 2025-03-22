@@ -15,7 +15,7 @@ public class UserDAO {
 
             stmt.setString(1, user.getFullName());
             stmt.setString(2, user.getEmail());
-            stmt.setDate(3, new java.sql.Date(user.getBirthDate().getTime()));
+            stmt.setString(3,user.getBirthDate());
             stmt.setString(4, user.getPassword());
             stmt.setString(5, user.getValidationToken());
             stmt.setBoolean(6, false);  // Utilisateur non validé initialement
@@ -39,7 +39,7 @@ public class UserDAO {
                 User user = new User();
                 user.setFullName(rs.getString("full_name"));
                 user.setEmail(rs.getString("email"));
-                user.setBirthDate(rs.getDate("birth_date"));
+                user.setBirthDate(rs.getString("birth_date"));
                 user.setPassword(rs.getString("password"));
                 user.setValidationToken(rs.getString("validation_token"));
                 user.setValidated(rs.getBoolean("validated"));
@@ -79,7 +79,7 @@ public class UserDAO {
                     resultSet.getString("full_name"),
                     resultSet.getString("email"),
                     resultSet.getString("password"),
-                    resultSet.getDate("birth_date")
+                    resultSet.getString("birth_date")
                 );
             }
         } catch (Exception e) {
