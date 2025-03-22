@@ -3,7 +3,7 @@ CREATE TABLE users (
     full_name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    birth_date DATE NOT NULL,
+    birth_date VARCHAR(255) NOT NULL,
     validation_token VARCHAR(255),
     validated BOOLEAN DEFAULT FALSE
 );
