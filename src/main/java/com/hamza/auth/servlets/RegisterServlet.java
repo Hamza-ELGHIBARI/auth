@@ -11,7 +11,7 @@ import javax.servlet.http.*;
 import java.io.*;
 import java.util.Date;
 
-@WebServlet("/register")
+@WebServlet("/registerf")
 public class RegisterServlet extends HttpServlet {
 
     private UserDAO userDAO = new UserDAO();
