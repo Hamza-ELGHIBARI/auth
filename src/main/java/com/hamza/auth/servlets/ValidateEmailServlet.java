@@ -7,35 +7,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class ValidateEmail
- */
-@WebServlet("/ValidateEmail")
+
+import com.hamza.auth.dao.UserDAO;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
+
+@WebServlet("/validate")
 public class ValidateEmailServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ValidateEmailServlet() {
-        super();
-        // TODO Auto-generated constructor stub
+
+    private UserDAO userDAO = new UserDAO();
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String token = request.getParameter("token");
+
+        if (userDAO.validateUser(token)) {
+            response.sendRedirect("views/login.jsp");  // Rediriger vers la page de connexion
+        } else {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid or expired token.");
+        }
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }
+
