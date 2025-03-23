@@ -8,8 +8,7 @@
     <h2>Login</h2>
     <form action="${pageContext.request.contextPath}/login" method="post">
         <label>Email:</label>
-        <input type="emailo" name="email" required ><br><br>
-        
+        <input type="emailo" name="email" required ><br><br> 
         <label>Password:</label>
         <input type="password" name="password" required><br><br>
         
