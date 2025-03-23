@@ -40,13 +40,13 @@ public class RegisterServlet extends HttpServlet {
 
         if (userDAO.createUser(user)) {
             // Envoyer l'email de validation
-            String validationLink = "http://localhost:8080/validate?token=" + validationToken;
+            String validationLink = "http://localhost:8082/validate?token=" + validationToken;
             String subject = "Email Validation";
             String body = "Please validate your email by clicking on the following link: " + validationLink;
 
             EmailSender.sendEmail(email, subject, body);
 
-            response.sendRedirect("checkEmail.jsp");  // Page pour informer l'utilisateur de vérifier son email
+            response.sendRedirect("views/checkEmail.jsp");  // Page pour informer l'utilisateur de vérifier son email
         } else {
             request.setAttribute("error", "An error occurred during registration.");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/views/register.jsp");
