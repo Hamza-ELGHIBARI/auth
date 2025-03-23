@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
 	
-    private static final String URL = "jdbc:mysql://localhost:3306/auth";
+    private static final String URL = "jdbc:mysql://localhost:3310/auth";
     private static final String USER = "root";  // Remplace par ton utilisateur
     private static final String PASSWORD = ""; // Remplace par ton mot de passe
 
